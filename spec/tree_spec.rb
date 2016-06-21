@@ -8,6 +8,17 @@ describe 'Tree' do
     expect(Tree.is_a? Class).to eq(true)
   end
 
+  it 'tree should default to age of zero' do
+    tree = Tree.new
+    expect(tree.age).to eq(0)
+  end
+
+  it 'should age the tree when age! is called' do
+    tree = Tree.new
+    tree.age!
+    expect(tree.age).to eq(1)
+  end
+
 end
 
 describe 'Fruit' do
