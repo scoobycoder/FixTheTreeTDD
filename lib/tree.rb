@@ -3,29 +3,35 @@ end
 
 class Tree
 
+
 end
 
-class AppleTree
-  # attr_#fill_in :height, :age, :apples, :alive
+class AppleTree < Tree
+  attr_reader :apples
+  #:height, :age, :alive
 
   def initialize
+    @apples = 0
   end
 
   def age!
   end
 
   def add_apples
+    @apples += 1
   end
 
   def any_apples?
+    @apples > 0
   end
 
-  def pick_an_apple!
-    raise NoApplesError, "This tree has no apples" unless self.any_apples?
-  end
+end
 
-  def dead?
-  end
+def pick_an_apple!
+  raise NoApplesError, "This tree has no apples" unless self.any_apples?
+end
+
+def dead?
 end
 
 class Fruit
