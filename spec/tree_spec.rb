@@ -1,9 +1,9 @@
 require 'rspec'
-require 'tree'
+require './lib/tree'
 
 describe 'Tree' do
   it 'should be a Class' do
-    expect(described_class.is_a? 'Class').to be_true
+    expect(Tree.is_a? Class).to eq(true)
   end
 end
 
