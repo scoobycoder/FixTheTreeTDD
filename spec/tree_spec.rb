@@ -1,22 +1,33 @@
 require 'rspec'
 require './lib/tree'
 
-
 describe 'Tree' do
+
+  before do
+    @tree = Tree.new
+  end
 
   it 'should be a Class' do
     expect(Tree.is_a? Class).to eq(true)
   end
 
   it 'tree should default to age of zero' do
-    tree = Tree.new
-    expect(tree.age).to eq(0)
+    expect(@tree.age).to eq(0)
   end
 
   it 'should age the tree when age! is called' do
-    tree = Tree.new
-    tree.age!
-    expect(tree.age).to eq(1)
+    @tree.age!
+    expect(@tree.age).to eq(1)
+  end
+
+  it 'should die after 200 years old' do
+    age_my_tree(201)
+    expect(@tree.dead?).to eq(true)
+  end
+
+  it 'should should be alive after 199 years old' do
+    age_my_tree(199)
+    expect(@tree.dead?).to eq(false)
   end
 
 end
@@ -36,5 +47,13 @@ describe 'Apple' do
 
   it 'should tell you if it has no apples' do
     expect(@apple_tree.any_apples?).to eq(false)
+  end
+end
+
+private
+
+def age_my_tree(years)
+  years.times do
+    @tree.age!
   end
 end

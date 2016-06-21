@@ -17,6 +17,11 @@ class Tree
     @age += 1
   end
 
+
+  def dead?
+    @age > 200
+  end
+
 end
 
 class AppleTree < Tree
@@ -37,8 +42,6 @@ def pick_an_apple!
   raise NoApplesError, "This tree has no apples" unless self.any_apples?
 end
 
-def dead?
-end
 
 class Fruit
   def initialize
