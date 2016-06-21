@@ -26,7 +26,7 @@ describe 'Tree' do
   end
 
   it 'should should be alive after 199 years old' do
-    age_my_tree(199)
+    age_my_tree(200)
     expect(@tree.dead?).to eq(false)
   end
 
@@ -48,6 +48,14 @@ describe 'Apple' do
   it 'should tell you if it has no apples' do
     expect(@apple_tree.any_apples?).to eq(false)
   end
+
+  it 'should picking an apple should reduce the number of apples on the tree' do
+    @apple_tree.add_apples
+    @apple_tree.add_apples
+    @apple_tree.pick_an_apple!
+    expect(@apple_tree.apples).to eq(1)
+  end
+
 end
 
 private
