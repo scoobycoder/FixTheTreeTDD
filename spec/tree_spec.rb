@@ -82,7 +82,6 @@ describe 'Apple' do
     expect(@apple.color).to eq('green')
   end
 
-
 end
 
 private
