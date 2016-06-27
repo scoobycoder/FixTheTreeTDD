@@ -40,19 +40,9 @@ describe 'Tree' do
     expect(@tree.apples).to eq(1)
   end
 
-end
-
-describe 'Fruit' do
-end
-
-describe 'Apple' do
-  before do
-    @apple_tree = AppleTree.new(1)
-  end
-
   it 'should tell you if it has apples' do
-    @apple_tree.add_apples
-    expect(@apple_tree.any_apples?).to eq(true)
+    @tree.add_apples
+    expect(@tree.any_apples?).to eq(true)
   end
 
   it 'should tell you if it has no apples' do
@@ -60,13 +50,24 @@ describe 'Apple' do
   end
 
   it 'should throw an exception if someone tries to pick apples that do not exist' do
-    @apple_tree.pick_an_apple!
-    expect{@apple_tree.pick_an_apple!}.to raise_error(NoApplesError, 'This tree has no apples')
+    @tree.pick_an_apple!
+    expect{@tree.pick_an_apple!}.to raise_error(NoApplesError, 'This tree has no apples')
   end
 
   it 'should start with at least one apple' do
-    expect(@apple_tree.apples).to eq(1)
+    expect(@tree.apples).to eq(1)
   end
+
+end
+
+describe 'Fruit' do
+end
+
+describe 'Apple' do
+  before do
+  end
+
+
 
 end
 

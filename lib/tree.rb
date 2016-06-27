@@ -34,12 +34,10 @@ class Tree
 end
 
 class AppleTree < Tree
-  #attr_reader :apples, :height, :age, :alive
 
   def initialize(start_apples)
     super(start_apples)
   end
-
 
 end
 
