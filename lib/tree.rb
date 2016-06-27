@@ -64,7 +64,9 @@ end
 # it should calculate the diameter of the apples in the basket
 
 def tree_data
-  tree = Tree.new(1)
+  tree = Tree.new(Apple.new('green', 4))
+
+  apple_count = 0
 
   tree.age! until tree.any_apples?
 
@@ -82,9 +84,10 @@ def tree_data
 
     basket.each do |apple|
       diameter_sum += apple.diameter
+      apple_count += 1
     end
 
-    avg_diameter = # It's up to you to calculate the average diameter for this harvest.
+    avg_diameter = diameter_sum / apple_count
         puts "Year #{tree.age} Report"
     puts "Tree height: #{tree.height} feet"
     puts "Harvest:     #{basket.size} apples with an average diameter of #{avg_diameter} inches"
@@ -98,4 +101,4 @@ def tree_data
 end
 
 # Uncomment this line to run the script, but BE SURE to comment it before you try to run your tests!
-# tree_data
+tree_data
