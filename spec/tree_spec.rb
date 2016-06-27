@@ -57,8 +57,7 @@ describe 'Apple' do
   end
 
   it 'should throw an exception if someone tries to pick apples that do not exist' do
-    @apple_tree.pick_an_apple!
-    expect(@apple_tree.apples).to raise_error(NoApplesError, "This tree has no apples")
+    expect{@apple_tree.pick_an_apple!}.to raise_error(NoApplesError, 'This tree has no apples')
   end
 
 end
