@@ -34,6 +34,12 @@ describe 'Tree' do
     expect(@tree.height).to eq(10)
   end
 
+  it 'should require that all trees allow picking of apples' do
+    @tree.add_apples
+    @tree.pick_an_apple!
+    expect(@tree.apples).to eq(1)
+  end
+
 end
 
 describe 'Fruit' do
@@ -51,12 +57,6 @@ describe 'Apple' do
 
   it 'should tell you if it has no apples' do
     expect(Tree.new(0).any_apples?).to eq(false)
-  end
-
-  it 'should picking an apple should reduce the number of apples on the tree' do
-    @apple_tree.add_apples
-    @apple_tree.pick_an_apple!
-    expect(@apple_tree.apples).to eq(1)
   end
 
   it 'should throw an exception if someone tries to pick apples that do not exist' do

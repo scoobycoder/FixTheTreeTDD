@@ -10,14 +10,22 @@ class Tree
     @height = 10
   end
 
+  def add_apples
+    @apples += 1
+  end
+
   def any_apples?
     @apples > 0
+  end
+
+  def pick_an_apple!
+    raise NoApplesError, 'This tree has no apples' unless self.any_apples?
+    @apples -= 1
   end
 
   def age!
     @age += 1
   end
-
 
   def dead?
     @age > 200
@@ -32,14 +40,6 @@ class AppleTree < Tree
     super(start_apples)
   end
 
-  def add_apples
-    @apples += 1
-  end
-
-  def pick_an_apple!
-    raise NoApplesError, 'This tree has no apples' unless self.any_apples?
-    @apples -= 1
-  end
 
 end
 
@@ -83,7 +83,6 @@ def tree_data
     end
 
     avg_diameter = # It's up to you to calculate the average diameter for this harvest.
-
         puts "Year #{tree.age} Report"
     puts "Tree height: #{tree.height} feet"
     puts "Harvest:     #{basket.size} apples with an average diameter of #{avg_diameter} inches"
