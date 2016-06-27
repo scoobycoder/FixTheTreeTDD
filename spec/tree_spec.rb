@@ -30,6 +30,10 @@ describe 'Tree' do
     expect(@tree.dead?).to eq(false)
   end
 
+  it 'tree should have initial height' do
+    expect(@tree.height).to eq(10)
+  end
+
 end
 
 describe 'Fruit' do

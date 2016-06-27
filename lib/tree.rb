@@ -2,11 +2,12 @@ class NoApplesError < StandardError;
 end
 
 class Tree
-  attr_reader :apples, :age
+  attr_reader :apples, :age, :height
 
   def initialize(start_apples)
     @apples = start_apples
     @age = 0
+    @height = 10
   end
 
   def any_apples?
