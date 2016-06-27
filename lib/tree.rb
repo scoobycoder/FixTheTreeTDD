@@ -5,22 +5,23 @@ class Tree
   attr_reader :apples, :age, :height
 
   def initialize(start_apples)
-    @apples = start_apples
+    @apples = []
+    @apples << start_apples
     @age = 0
     @height = 10
   end
 
   def add_apples
-    @apples += 1
+    @apples << Apple.new('green', 10)
   end
 
   def any_apples?
-    @apples > 0
+    @apples.length > 0
   end
 
   def pick_an_apple!
     raise NoApplesError, 'This tree has no apples' unless self.any_apples?
-    @apples -= 1
+    @apples.pop
   end
 
   def age!

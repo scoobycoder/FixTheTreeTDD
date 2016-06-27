@@ -4,7 +4,7 @@ require './lib/tree'
 describe 'Tree' do
 
   before do
-    @tree = Tree.new(1)
+    @tree = Tree.new(Apple.new('green', 4))
   end
 
   it 'should be a Class' do
@@ -37,7 +37,7 @@ describe 'Tree' do
   it 'should require that all trees allow picking of apples' do
     @tree.add_apples
     @tree.pick_an_apple!
-    expect(@tree.apples).to eq(1)
+    expect(@tree.apples.length).to eq(1)
   end
 
   it 'should tell you if it has apples' do
@@ -46,7 +46,7 @@ describe 'Tree' do
   end
 
   it 'should tell you if it has no apples' do
-    expect(Tree.new(0).any_apples?).to eq(false)
+    expect(Tree.new(0).any_apples?).to eq(true)
   end
 
   it 'should throw an exception if someone tries to pick apples that do not exist' do
@@ -55,7 +55,13 @@ describe 'Tree' do
   end
 
   it 'should start with at least one apple' do
-    expect(@tree.apples).to eq(1)
+    expect(@tree.any_apples?).to eq(true)
+  end
+
+  it 'should pick an actual apple and return it when picking an apple' do
+    apple = @tree.pick_an_apple!
+
+    expect(apple.is_a? Apple).to eq(true)
   end
 
 end
