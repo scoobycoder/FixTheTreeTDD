@@ -4,8 +4,8 @@ end
 class Tree
   attr_reader :apples, :age
 
-  def initialize
-    @apples = 0
+  def initialize(start_apples)
+    @apples = start_apples
     @age = 0
   end
 
@@ -27,8 +27,8 @@ end
 class AppleTree < Tree
   #attr_reader :apples, :height, :age, :alive
 
-  def initialize
-    super
+  def initialize(start_apples)
+    super(start_apples)
   end
 
   def add_apples
@@ -61,7 +61,7 @@ end
 # it should calculate the diameter of the apples in the basket
 
 def tree_data
-  tree = Tree.new
+  tree = Tree.new(1)
 
   tree.age! until tree.any_apples?
 
